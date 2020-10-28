@@ -35,6 +35,11 @@
       role="button">Report</a>
   </div>
   <div class="sticky-top" id="bar">
+    <!--
+    <div class="navleft">
+      <a class="nav-link" href="#tablesorter">Leaderboard</a>
+    </div>
+    -->
     <h1 class="title" id='title'>
       When.net
     </h1>
@@ -59,18 +64,21 @@
       <p>Press <kbd>S</kbd> to save</p>
       <p>Press or hold <kbd>C</kbd> to upgrade the constant</p>
       <p>Press or hold <kbd>M</kbd> to upgrade the multiplier</p>
+      <button type="button" class="btn btn-danger" href="index.html">Log out</button>
     </div>
   </div>
-  <table class="table table-hover" id="tablesorter">
-    <thead>
-      <tr>
-        <th scope="col">Name</th>
-        <th scope="col">Taps</th>
-      </tr>
-    </thead>
-    <tbody id='leaderboard'>
-    </tbody>
-  </table>
+  <div class="inner" data-spy="scroll" data-target="#bar" data-offset="0">
+    <table class="table table-hover" id="tablesorter">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Taps</th>
+        </tr>
+      </thead>
+      <tbody id='leaderboard'>
+      </tbody>
+    </table>
+  </div>
   <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
 
@@ -97,15 +105,18 @@
     var db = firebase.firestore();
 
     var email = window.localStorage.getItem("email");
-    var userRef = db.collection('users').doc(email)
+    var userRef = db.collection('users').doc(email);
 
-    var taps
-    var constant
-    var multiplier
-    var constanttier
-    var multipliertier
-    var constcost
-    var multicost
+    var taps;
+    var constant;
+    var multiplier;
+    var constanttier;
+    var multipliertier;
+    var constcost;
+    var multicost;
+
+    var constpow = 4;
+    var multipow = 6;
 
     userRef.get().then(function (doc) {
       if (doc.exists) { //if the user has account load values into localstorage
@@ -123,8 +134,8 @@
       multiplier = parseInt(window.localStorage.getItem('multiplier'));
       constanttier = parseInt(window.localStorage.getItem('constanttier'));
       multipliertier = parseInt(window.localStorage.getItem('multipliertier'));
-      constcost = 1 * Math.pow(constanttier, 2);
-      multicost = 2 * Math.pow(multipliertier, 3);
+      constcost = 1 * Math.pow(constanttier, constpow);
+      multicost = 2 * Math.pow(multipliertier, multipow);
 
       document.getElementById('username').innerHTML = window.localStorage.getItem('name');
 
@@ -206,7 +217,10 @@
         constanttier += 1;
         constant += 1;
         taps -= constcost;
-        constcost = Math.pow(2, constanttier);
+        constcost = Math.pow(constanttier, constpow);
+      }
+      else {
+        Popup('Not enough taps!', 'danger')
       };
       Update();
     };
@@ -216,7 +230,9 @@
         multipliertier += 1;
         multiplier += 1;
         taps -= multicost;
-        multicost = 2 * Math.pow(3, multipliertier);
+        multicost = 2 * Math.pow(multipliertier, multipow);
+      } else {
+        Popup('Not enough taps!', 'danger')
       };
       Update();
     };
@@ -229,27 +245,29 @@
         constanttier: constanttier,
         multipliertier: multipliertier
       }).then(function () {
-        PopupSuccess('Saved successfully!', 'success')
+        Popup('Saved successfully!', 'success')
       })
     };
 
-    function PopupSuccess(message, type) {
+    function Popup(message, type) {
       var bar = document.getElementById('notif');
-      var alert = document.createElement('div');
-      var close = document.createElement('button');
-      var x = document.createElement('span');
-      alert.setAttribute('class', 'alert alert-' + type + ' alert-dismissible fade show');
-      alert.setAttribute('role', 'alert');
-      alert.innerHTML = message;
-      close.setAttribute('type', 'button');
-      close.setAttribute('class', 'close');
-      close.setAttribute('data-dismiss', 'alert');
-      close.setAttribute('aria-label', 'Close');
-      x.setAttribute('aria-hidden', 'true');
-      x.innerHTML = '&times;';
-      close.appendChild(x);
-      alert.appendChild(close);
-      bar.appendChild(alert)
+      if (bar.hasChildNodes() == false) {
+        var alert = document.createElement('div');
+        var close = document.createElement('button');
+        var x = document.createElement('span');
+        alert.setAttribute('class', 'alert alert-' + type + ' alert-dismissible fade show');
+        alert.setAttribute('role', 'alert');
+        alert.innerHTML = message;
+        close.setAttribute('type', 'button');
+        close.setAttribute('class', 'close');
+        close.setAttribute('data-dismiss', 'alert');
+        close.setAttribute('aria-label', 'Close');
+        x.setAttribute('aria-hidden', 'true');
+        x.innerHTML = '&times;';
+        close.appendChild(x);
+        alert.appendChild(close);
+        bar.appendChild(alert)
+      }
     };
   </script>
 </body>

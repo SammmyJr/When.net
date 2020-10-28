@@ -61,7 +61,7 @@
         userRef.get().then(function (doc) {
           if (doc.exists) { //if the user has account load values into localstorage
             var data = doc.data()
-            window.localStorage.setItem('email', user['email'])
+            window.localStorage.setItem('email', doc.id)
             window.localStorage.setItem('taps', data['taps'])
             window.localStorage.setItem('constant', data['constant'])
             window.localStorage.setItem('multiplier', data['multiplier'])

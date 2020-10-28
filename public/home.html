@@ -126,6 +126,8 @@
       constcost = 1 * Math.pow(constanttier, 2);
       multicost = 2 * Math.pow(multipliertier, 3);
 
+      document.getElementById('username').innerHTML = window.localStorage.getItem('name');
+
       db.collection("users").get().then(function (querySnapshot) {
         querySnapshot.forEach(function (doc) {
           // doc.data() is never undefined for query doc snapshots
@@ -158,8 +160,6 @@
       'Every 60 seconds in Africa, a minute passes',
       'Smack it like you mean it!'
     ]
-
-    document.getElementById('username').innerHTML = window.localStorage.getItem('name');
 
     document.getElementById("tips").innerHTML = tipslist[Math.floor(Math.random() * tipslist.length)];
 

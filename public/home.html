@@ -117,8 +117,8 @@
         window.localStorage.setItem('multipliertier', data['multipliertier'])
         window.localStorage.setItem('constanttier', data['constanttier'])
         window.localStorage.setItem('name', data['name'])
-        window.localStorage.setItem('banner', data['banner'])
-        JSON.parse(window.localStorage.setItem('tier', data['tier']))
+        JSON.parse(window.localStorage.setItem('banner', data['banner']))
+        window.localStorage.setItem('tier', data['tier'])
       };
     }).then(function () {
       taps = parseInt(window.localStorage.getItem('taps'));

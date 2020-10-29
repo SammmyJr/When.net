@@ -66,6 +66,7 @@
       <tr>
         <th scope="col">Name</th>
         <th scope="col">Taps</th>
+        <th scope="col">Banner</th>
       </tr>
     </thead>
     <tbody id='leaderboard'>
@@ -116,6 +117,8 @@
         window.localStorage.setItem('multipliertier', data['multipliertier'])
         window.localStorage.setItem('constanttier', data['constanttier'])
         window.localStorage.setItem('name', data['name'])
+        window.localStorage.setItem('banner', data['banner'])
+        JSON.parse(window.localStorage.setItem('tier', data['tier']))
       };
     }).then(function () {
       taps = parseInt(window.localStorage.getItem('taps'));
@@ -133,11 +136,13 @@
           var row = document.createElement('tr');
           var th = document.createElement('th');
           var td = document.createElement('td');
+          var banner = document.createElement('td');
 
           th.setAttribute('scope', 'row');
           th.innerHTML = doc.data()['name'];
 
           td.innerHTML = doc.data()['taps'];
+          banner.innerHTML = doc.data()['tier']
           row.appendChild(th);
           row.appendChild(td);
           leaderboard.appendChild(row);

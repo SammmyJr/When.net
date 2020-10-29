@@ -68,6 +68,8 @@
             window.localStorage.setItem('multipliertier', data['multipliertier'])
             window.localStorage.setItem('constanttier', data['constanttier'])
             window.localStorage.setItem('name', data['name'])
+            window.localStorage.setItem('banner', JSON.stringify(data['banner']))
+            window.localStorage.setItem('tier', data['tier'])
 
             window.open('home.html', '_self') //redirect to main page
           } else { //make a user account for the user
@@ -78,7 +80,9 @@
               multipliertier: 1,
               constanttier: 1,
               name: user['displayName'],
-              inv: []
+              inv: [],
+              banner: {'img': 'none', 'background': 'none'},
+              tier: 1
             }, { merge: true }).then(function(){
               window.open('home.html', '_self') //redirect to main page
             });

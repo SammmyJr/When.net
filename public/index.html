@@ -18,7 +18,9 @@
 
 <body class="rainbow">
   <div class="inner">
-    <a name="" id="" class="btn btn-primary" role="button" onclick="login()">Login</a>
+    <h1 class="display-1">Login</h1>
+    <br>
+    <button class="btn btn-primary" role="button" onclick="login()">Login</button>
   </div>
 
   <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -61,7 +63,7 @@
         userRef.get().then(function (doc) {
           if (doc.exists) { //if the user has account load values into localstorage
             var data = doc.data()
-            window.localStorage.setItem('email', user['email'])
+            window.localStorage.setItem('email', doc.id)
             window.localStorage.setItem('taps', data['taps'])
             window.localStorage.setItem('constant', data['constant'])
             window.localStorage.setItem('multiplier', data['multiplier'])

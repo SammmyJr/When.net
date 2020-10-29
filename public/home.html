@@ -117,7 +117,7 @@
         window.localStorage.setItem('multipliertier', data['multipliertier'])
         window.localStorage.setItem('constanttier', data['constanttier'])
         window.localStorage.setItem('name', data['name'])
-        JSON.parse(window.localStorage.setItem('banner', data['banner']))
+        window.localStorage.setItem('banner', JSON.stringify(data['banner']))
         window.localStorage.setItem('tier', data['tier'])
       };
     }).then(function () {
@@ -126,6 +126,8 @@
       multiplier = parseInt(window.localStorage.getItem('multiplier'));
       constanttier = parseInt(window.localStorage.getItem('constanttier'));
       multipliertier = parseInt(window.localStorage.getItem('multipliertier'));
+      JSON.parse(banner = parseInt(window.localStorage.getItem('banner')));
+      tier = parseInt(window.localStorage.getItem('tier'));
       constcost = 1 * Math.pow(constanttier, 3);
       multicost = 2 * Math.pow(multipliertier, 4);
 

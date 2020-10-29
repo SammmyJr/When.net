@@ -211,7 +211,7 @@
         constanttier += 1;
         constant += 1;
         taps -= constcost;
-        constcost = Math.pow(2, constanttier);
+        constcost = Math.pow(constanttier, 3);
       };
       Update();
     };
@@ -221,7 +221,7 @@
         multipliertier += 1;
         multiplier += 1;
         taps -= multicost;
-        multicost = 2 * Math.pow(3, multipliertier);
+        multicost = 2 * Math.pow(multipliertier, 4);
       };
       Update();
     };

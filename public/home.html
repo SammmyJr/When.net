@@ -72,6 +72,7 @@
     <tbody id='leaderboard'>
     </tbody>
   </table>
+  <h2>Shop</h2>
   <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
 
@@ -147,6 +148,7 @@
           banner.innerHTML = doc.data()['tier']
           row.appendChild(th);
           row.appendChild(td);
+          row.appendChild(banner);
           leaderboard.appendChild(row);
         });
       }).then(function () {

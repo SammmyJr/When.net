@@ -165,7 +165,8 @@
       'git gud',
       'Buy some stuff',
       'Every 60 seconds in Africa, a minute passes',
-      'Smack it like you mean it!'
+      'Smack it like you mean it!',
+      'Just keep going'
     ]
 
     document.getElementById('username').innerHTML = window.localStorage.getItem('name');
@@ -244,21 +245,24 @@
 
     function PopupSuccess(message, type) {
       var bar = document.getElementById('notif');
-      var alert = document.createElement('div');
-      var close = document.createElement('button');
-      var x = document.createElement('span');
-      alert.setAttribute('class', 'alert alert-' + type + ' alert-dismissible fade show');
-      alert.setAttribute('role', 'alert');
-      alert.innerHTML = message;
-      close.setAttribute('type', 'button');
-      close.setAttribute('class', 'close');
-      close.setAttribute('data-dismiss', 'alert');
-      close.setAttribute('aria-label', 'Close');
-      x.setAttribute('aria-hidden', 'true');
-      x.innerHTML = '&times;';
-      close.appendChild(x);
-      alert.appendChild(close);
-      bar.appendChild(alert)
+      if (bar.children.length < 3)
+      {
+        var alert = document.createElement('div');
+        var close = document.createElement('button');
+        var x = document.createElement('span');
+        alert.setAttribute('class', 'alert alert-' + type + ' alert-dismissible fade show');
+        alert.setAttribute('role', 'alert');
+        alert.innerHTML = message;
+        close.setAttribute('type', 'button');
+        close.setAttribute('class', 'close');
+        close.setAttribute('data-dismiss', 'alert');
+        close.setAttribute('aria-label', 'Close');
+        x.setAttribute('aria-hidden', 'true');
+        x.innerHTML = '&times;';
+        close.appendChild(x);
+        alert.appendChild(close);
+        bar.appendChild(alert);
+      }
     };
   </script>
 </body>

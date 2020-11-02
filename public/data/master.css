@@ -36,18 +36,13 @@ tbody {
 
 div.tap {
   text-align: center;
-  margin-top: 10%;
+  margin-top: 15%;
 }
 
 .notif {
     margin-top: 5px;
     float: right;
     width: auto;
-    background-color: black;
-}
-
-.sticky-top {
-  background-color: blue;
 }
 
 .rainbow {

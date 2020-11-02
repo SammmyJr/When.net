@@ -73,6 +73,9 @@
     </tbody>
   </table>
   <h2>Shop</h2>
+  <div id="shop">
+
+  </div>
   <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
 
@@ -198,6 +201,45 @@
       // Cancel the default action to avoid it being handled twice
       event.preventDefault();
     }, true);
+
+    var shop = document.getElementById("shop");
+
+    db.collection("shop").get().then(function (querySnapshot) {
+      querySnapshot.forEach(function (doc) {
+        // doc.data() is never undefined for query doc snapshots
+        var card = document.createElement('div');
+        var img = document.createElement('img');
+        var body = document.createElement('div');
+        var name = document.createElement('h5');
+        var desc = document.createElement('p');
+
+        card.setAttribute('class', 'card');
+        card.setAttribute('style', 'width: 18rem;');
+
+        img.setAttribute('class', 'card-img-top');
+        img.setAttribute('src', doc.data()['img']);
+
+        body.setAttribute('class' , 'card-body')
+
+        name.setAttribute('class' , 'card-title')
+        desc.setAttribute('class' , 'card-text')
+
+        name.innerHTML = doc.data()['name'];
+        desc.innerHTML = doc.data()['desc'];
+
+        card.appendChild(img);
+        body.appendChild(name);
+        body.appendChild(desc);
+        card.appendChild(body);
+        shop.appendChild(card);
+      });
+    }).then(function () {
+      $(function () {
+        $("#tablesorter").tablesorter({ sortList: [[0, 0], [1, 1]] });
+      });
+      Update();
+    });
+  });
 
     function Tap() {
       taps += constant * multiplier;

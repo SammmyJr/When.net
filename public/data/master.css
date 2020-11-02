@@ -43,6 +43,11 @@ div.tap {
     margin-top: 5px;
     float: right;
     width: auto;
+    background-color: black;
+}
+
+.sticky-top {
+  background-color: blue;
 }
 
 .rainbow {

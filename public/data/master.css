@@ -42,7 +42,7 @@ div.tap {
 .notif {
     margin-top: 5px;
     float: right;
-    width: 20%;
+    width: auto;
 }
 
 .rainbow {

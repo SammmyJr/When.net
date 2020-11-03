@@ -60,6 +60,7 @@
       <p>Press or hold <kbd>C</kbd> to upgrade the constant</p>
       <p>Press or hold <kbd>M</kbd> to upgrade the multiplier</p>
       <a class="btn btn-danger" href="index.html">Logout</a>
+      <br>
     </div>
   </div>
   <table class="table table-hover" id="tablesorter">
@@ -228,7 +229,7 @@
         type.setAttribute('class', 'card-subtitle')
         desc.setAttribute('class' , 'card-text')
         buy.setAttribute('class', 'btn btn-primary')
-        buy.setAttribute('onclick', 'Buy()')
+        buy.setAttribute('onclick', 'Buy(' + doc.data() + ')')
 
         name.innerHTML = doc.data()['name'];
         type.innerHTML = doc.data()['type'];
@@ -286,9 +287,10 @@
       Update();
     };
 
-    function Buy() {
-      PopupSuccess('Bought an item', 'primary')
-    }
+    function Buy(item) {
+      PopupSuccess('Bought an item', 'primary');
+      console.log(item);
+    };
 
     function Save() {
       return userRef.update({

@@ -230,7 +230,7 @@
         desc.setAttribute('class' , 'card-text');
         buy.setAttribute('class', 'btn btn-primary');
         console.log(doc.data());
-        buy.setAttribute('onclick', 'Buy(' + doc.data() + ')');
+        buy.onclick = function() {Buy(doc.data())};
 
         name.innerHTML = doc.data()['name'];
         type.innerHTML = doc.data()['type'];

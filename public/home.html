@@ -229,7 +229,6 @@
         type.setAttribute('class', 'card-subtitle');
         desc.setAttribute('class' , 'card-text');
         buy.setAttribute('class', 'btn btn-primary');
-        console.log(doc.data());
         buy.onclick = function() {Buy(doc.data())};
 
         name.innerHTML = doc.data()['name'];
@@ -289,8 +288,8 @@
     };
 
     function Buy(item) {
-      PopupSuccess('Bought an item', 'primary');
-      console.log(item);
+      PopupSuccess('Bought ' + item['name'], 'primary');
+
     };
 
     function Save() {

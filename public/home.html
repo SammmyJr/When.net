@@ -116,15 +116,15 @@
 
     userRef.get().then(function (doc) {
       if (doc.exists) { //if the user has account load values into localstorage
-        var data = doc.data()
-        window.localStorage.setItem('taps', data['taps'])
-        window.localStorage.setItem('constant', data['constant'])
-        window.localStorage.setItem('multiplier', data['multiplier'])
-        window.localStorage.setItem('multipliertier', data['multipliertier'])
-        window.localStorage.setItem('constanttier', data['constanttier'])
-        window.localStorage.setItem('name', data['name'])
-        window.localStorage.setItem('banner', JSON.stringify(data['banner']))
-        window.localStorage.setItem('tier', data['tier'])
+        var data = doc.data();
+        window.localStorage.setItem('taps', data['taps']);
+        window.localStorage.setItem('constant', data['constant']);
+        window.localStorage.setItem('multiplier', data['multiplier']);
+        window.localStorage.setItem('multipliertier', data['multipliertier']);
+        window.localStorage.setItem('constanttier', data['constanttier']);
+        window.localStorage.setItem('name', data['name']);
+        window.localStorage.setItem('banner', JSON.stringify(data['banner']));
+        window.localStorage.setItem('tier', data['tier']);
       };
     }).then(function () {
       taps = parseInt(window.localStorage.getItem('taps'));
@@ -223,19 +223,19 @@
         img.setAttribute('class', 'card-img-top');
         img.setAttribute('src', doc.data()['img']);
 
-        body.setAttribute('class' , 'card-body')
+        body.setAttribute('class' , 'card-body');
 
-        name.setAttribute('class' , 'card-title')
-        type.setAttribute('class', 'card-subtitle')
-        desc.setAttribute('class' , 'card-text')
-        buy.setAttribute('class', 'btn btn-primary')
-        conaole.log(doc.data())
-        buy.setAttribute('onclick', 'Buy(' + doc.data() + ')')
+        name.setAttribute('class' , 'card-title');
+        type.setAttribute('class', 'card-subtitle');
+        desc.setAttribute('class' , 'card-text');
+        buy.setAttribute('class', 'btn btn-primary');
+        conaole.log(doc.data());
+        buy.setAttribute('onclick', 'Buy(' + doc.data() + ')');
 
         name.innerHTML = doc.data()['name'];
         type.innerHTML = doc.data()['type'];
         desc.innerHTML = doc.data()['desc'];
-        buy.innerHTML = 'Buy for ' + doc.data()['value'] + ' taps'
+        buy.innerHTML = 'Buy for ' + doc.data()['value'] + ' taps';
 
         card.appendChild(img);
         body.appendChild(name);
@@ -288,7 +288,7 @@
       Update();
     };
 
-    function Buy(item) {
+    function Buy(var item) {
       PopupSuccess('Bought an item', 'primary');
       console.log(item);
     };

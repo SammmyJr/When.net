@@ -229,7 +229,7 @@
         type.setAttribute('class', 'card-subtitle');
         desc.setAttribute('class' , 'card-text');
         buy.setAttribute('class', 'btn btn-primary');
-        conaole.log(doc.data());
+        console.log(doc.data());
         buy.setAttribute('onclick', 'Buy(' + doc.data() + ')');
 
         name.innerHTML = doc.data()['name'];
@@ -288,7 +288,7 @@
       Update();
     };
 
-    function Buy(var item) {
+    function Buy(item) {
       PopupSuccess('Bought an item', 'primary');
       console.log(item);
     };

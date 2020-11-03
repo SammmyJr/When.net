@@ -289,7 +289,6 @@
 
     function Buy(item) {
       PopupSuccess('Bought ' + item['name'], 'primary');
-
     };
 
     function Save() {
@@ -325,6 +324,26 @@
         bar.appendChild(alert);
       }
     };
+
+    async function GetUserData(data) {
+      var docRef = db.collection("users").doc(email);
+
+      docRef.get().then(function(doc) {
+          if (doc.exists) {
+                return doc.data()[data];
+            } else {
+                // doc.data() will be undefined in this case
+                console.log("No such document!");
+            }
+        }).catch(function(error) {
+            console.log("Error getting document:", error);
+        });
+    }
+
+    async function UpdateUserData(value, data) {
+      userData = GetUserData('inv')
+      console.log(userData)
+    }
   </script>
 </body>
 

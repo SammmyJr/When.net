@@ -228,7 +228,6 @@
         desc.setAttribute('class' , 'card-text')
         buy.setAttribute('class', 'btn btn-primary')
         buy.setAttribute('onlick', 'Buy()')
-        <a href="#" class="btn btn-primary">Go somewhere</a>
 
         name.innerHTML = doc.data()['name'];
         type.innerHTML = doc.data()['type'];
@@ -285,6 +284,10 @@
       };
       Update();
     };
+
+    function Buy() {
+      PopupSuccess('Bought an item', 'primary')
+    }
 
     function Save() {
       return userRef.update({

@@ -213,6 +213,7 @@
         let name = document.createElement('h5');
         let type = document.createElement('h6');
         let desc = document.createElement('p');
+        let buy = document.createElement('a');
 
         card.setAttribute('class', 'card');
         card.setAttribute('style', 'width: 18rem;');
@@ -225,15 +226,20 @@
         name.setAttribute('class' , 'card-title')
         type.setAttribute('class', 'card-subtitle')
         desc.setAttribute('class' , 'card-text')
+        buy.setAttribute('class', 'btn btn-primary')
+        buy.setAttribute('onlick', 'Buy()')
+        <a href="#" class="btn btn-primary">Go somewhere</a>
 
         name.innerHTML = doc.data()['name'];
         type.innerHTML = doc.data()['type'];
         desc.innerHTML = doc.data()['desc'];
+        buy.innerHTML = 'Buy for ' + doc.data()['value'] + ' taps'
 
         card.appendChild(img);
         body.appendChild(name);
         body.appendChild(type);
         body.appendChild(desc);
+        body.appendChild(buy);
         card.appendChild(body);
         shop.appendChild(card);
       });

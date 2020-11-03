@@ -342,8 +342,9 @@
     }
 
     async function UpdateUserData(value, data) {
-      userData = await GetUserData('inv')
-      console.log(userData)
+      userData = GetUserData('inv').then(function(){
+          console.log(userData);  
+      });
     }
   </script>
 </body>

@@ -288,6 +288,7 @@
     };
 
     function Buy(item) {
+      PopupSuccess('Spent ' + item['value'] + ' taps', 'caution');
       PopupSuccess('Bought ' + item['name'], 'primary');
     };
 
@@ -341,7 +342,7 @@
     }
 
     async function UpdateUserData(value, data) {
-      userData = GetUserData('inv')
+      userData = await GetUserData('inv')
       console.log(userData)
     }
   </script>

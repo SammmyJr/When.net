@@ -339,6 +339,44 @@
         };
       })
     }
+
+    async function UpdateInv() {
+      db.collection("users").doc(email).get().then(function (doc) {
+          var inv = document.getElementById('inv');
+          
+          doc.data()['inv'].forEach(item => function() {
+            let card = document.createElement('div');
+            let img = document.createElement('img');
+            let body = document.createElement('div');
+            let name = document.createElement('h5');
+            let type = document.createElement('h6');
+            let desc = document.createElement('p');
+
+            card.setAttribute('class', 'card');
+            card.setAttribute('style', 'width: 18rem;');
+
+            img.setAttribute('class', 'card-img-top');
+            img.setAttribute('src', item['img']);
+
+            body.setAttribute('class' , 'card-body');
+
+            name.setAttribute('class' , 'card-title');
+            type.setAttribute('class', 'card-subtitle');
+            desc.setAttribute('class' , 'card-text');
+
+            name.innerHTML = item['name'];
+            type.innerHTML = item['type'];
+            desc.innerHTML = item['desc'];
+
+            card.appendChild(img);
+            body.appendChild(name);
+            body.appendChild(type);
+            body.appendChild(desc);
+            card.appendChild(body);
+            inv.appendChild(card);
+          });
+        });
+    }
   </script>
 </body>
 

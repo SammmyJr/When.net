@@ -104,7 +104,7 @@
     var db = firebase.firestore();
 
     var email = window.localStorage.getItem("email");
-    var userRef = db.collection('users').doc(email)
+    var c = db.collection('users').doc(email);
 
     var taps
     var constant
@@ -326,25 +326,12 @@
       }
     };
 
-    async function GetUserData(data) {
-      var docRef = db.collection("users").doc(email);
+    async function UpdateUserInv(item) {
+      var washingtonRef = db.collection("users").doc(email);
 
-      docRef.get().then(function(doc) {
-          if (doc.exists) {
-                return doc.data()[data];
-            } else {
-                // doc.data() will be undefined in this case
-                console.log("No such document!");
-            }
-        }).catch(function(error) {
-            console.log("Error getting document:", error);
-        });
-    }
-
-    async function UpdateUserData(value, data) {
-      userData = GetUserData('inv').then(function(){
-          console.log(userData);  
-      });
+      return washingtonRef.update({
+          capital: true
+      })
     }
   </script>
 </body>

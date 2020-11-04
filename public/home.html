@@ -289,6 +289,7 @@
 
     function Buy(item) {
       PopupSuccess('Spent ' + item['value'] + ' taps', 'warning');
+      UpdateUserInv(item);
       PopupSuccess('Bought ' + item['name'], 'primary');
     };
 

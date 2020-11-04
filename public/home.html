@@ -349,6 +349,7 @@
     }
 
     async function UpdateInv() {
+      console.log('Inv setup');
       db.collection("users").doc(email).get().then(function (doc) {
           var inv = document.getElementById('inv');
 

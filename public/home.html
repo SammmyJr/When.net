@@ -104,7 +104,7 @@
     var db = firebase.firestore();
 
     var email = window.localStorage.getItem("email");
-    var c = db.collection('users').doc(email);
+    var userRef = db.collection('users').doc(email);
 
     var taps
     var constant

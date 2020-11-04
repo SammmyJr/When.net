@@ -327,10 +327,15 @@
     };
 
     async function UpdateUserInv(item) {
-      var washingtonRef = db.collection("users").doc(email);
-
-      return washingtonRef.update({
-          capital: true
+      userRef.get().then(function (doc) {
+        if (doc.exists) { //if the user has account load values into localstorage
+          var data = doc.data();
+          newinv = doc.data()['inv'];
+          newinv.push(item)
+          return userRef.update({
+              inv: newinv
+          })
+        };
       })
     }
   </script>

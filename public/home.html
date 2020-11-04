@@ -78,6 +78,10 @@
   <div id="shop">
 
   </div>
+  <h2>Inv</h2>
+  <div id="inv">
+
+  </div>
   <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
 
@@ -335,6 +339,8 @@
           newinv.push(item)
           return userRef.update({
               inv: newinv
+          }).then(function (){
+            UpdateInv();
           })
         };
       })
@@ -343,7 +349,7 @@
     async function UpdateInv() {
       db.collection("users").doc(email).get().then(function (doc) {
           var inv = document.getElementById('inv');
-          
+
           doc.data()['inv'].forEach(item => function() {
             let card = document.createElement('div');
             let img = document.createElement('img');

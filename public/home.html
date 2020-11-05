@@ -362,7 +362,7 @@
             card.setAttribute('style', 'width: 18rem;');
 
             img.setAttribute('class', 'card-img-top');
-            img.setAttribute('src', item['img']);
+            img.setAttribute('src', item[0]['img']);
 
             body.setAttribute('class' , 'card-body');
 
@@ -370,9 +370,9 @@
             type.setAttribute('class', 'card-subtitle');
             desc.setAttribute('class' , 'card-text');
 
-            name.innerHTML = item['name'];
-            type.innerHTML = item['type'];
-            desc.innerHTML = item['desc'];
+            name.innerHTML = item[0]['name'];
+            type.innerHTML = item[0]['type'];
+            desc.innerHTML = item[0]['desc'];
 
             card.appendChild(img);
             body.appendChild(name);

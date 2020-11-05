@@ -352,6 +352,8 @@
       console.log('Inv setup');
       db.collection("users").doc(email).get().then(function (doc) {
           var inv = document.getElementById('inv');
+          console.log(doc.data())
+          console.log(doc.data()['inv'])
 
           doc.data()['inv'].forEach(item => function() {
             let card = document.createElement('div');

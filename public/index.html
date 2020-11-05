@@ -85,8 +85,21 @@
               inv: [],
               banner: {'img': 'none', 'background': 'none'},
               tier: 1
-            }, { merge: true }).then(function(){
-              window.open('home.html', '_self') //redirect to main page
+            }).then(function(){
+				userRef.get().then(function (doc) {
+					var data = doc.data()
+            window.localStorage.setItem('email', doc.id)
+            window.localStorage.setItem('taps', data['taps'])
+            window.localStorage.setItem('constant', data['constant'])
+            window.localStorage.setItem('multiplier', data['multiplier'])
+            window.localStorage.setItem('multipliertier', data['multipliertier'])
+            window.localStorage.setItem('constanttier', data['constanttier'])
+            window.localStorage.setItem('name', data['name'])
+            window.localStorage.setItem('banner', JSON.stringify(data['banner']))
+            window.localStorage.setItem('tier', data['tier'])
+				}).then(function() {
+					window.open('home.html', '_self') //redirect to main page
+				})    ;          
             });
           }
         });

@@ -2,15 +2,15 @@ body {
   padding: 10px;
 }
 
-#title {
-  color: azure;
-  text-align: center;
-  margin-bottom: -10px;
-}
-
 .sticky-top p {
     text-align: center;
     color: azure;
+}
+
+.sticky-top a {
+  color: azure;
+  text-align: center;
+  margin-bottom: -10px;
 }
 
 .inner button {

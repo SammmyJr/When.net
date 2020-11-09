@@ -349,8 +349,9 @@
           console.log(doc.data())
           console.log(doc.data()['inv'])
 
-          for (var item in doc.data()['inv']) {
-            console.log(item)
+          for (let i in doc.data()['inv']) {
+            item = doc.data()['inv'][i];
+            console.log(item);
             let card = document.createElement('div');
             let img = document.createElement('img');
             let body = document.createElement('div');

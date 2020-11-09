@@ -351,9 +351,10 @@
 
     async function UpdateInv() {
       var inv = document.getElementById('inv');
-      inv.innerHTML = 'Loading...'
+      inv.innerHTML = 'Loading...';
       db.collection("users").doc(email).get().then(function (doc) {
           var inv = document.getElementById('inv');
+          inv.innerHTML = '';
 
           for (let i in doc.data()['inv']) {
             item = doc.data()['inv'][i];

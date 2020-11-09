@@ -353,16 +353,12 @@
 
     async function UpdateInv() {
       var inv = document.getElementById('inv');
-      console.log('Inv setup');
       inv.innerHTML = 'Loading...'
       db.collection("users").doc(email).get().then(function (doc) {
           var inv = document.getElementById('inv');
-          console.log(doc.data())
-          console.log(doc.data()['inv'])
 
           for (let i in doc.data()['inv']) {
             item = doc.data()['inv'][i];
-            console.log(item);
             let card = document.createElement('div');
             let img = document.createElement('img');
             let body = document.createElement('div');

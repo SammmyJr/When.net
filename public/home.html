@@ -74,7 +74,7 @@
   </div>
   <br>
   <h2>Inv</h2>
-  <div id="inv">
+  <div id="inv" class="container">
 
   </div>
   <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -343,7 +343,9 @@
     }
 
     async function UpdateInv() {
+      var inv = document.getElementById('inv');
       console.log('Inv setup');
+      inv.innerHTML = 'Loading...'
       db.collection("users").doc(email).get().then(function (doc) {
           var inv = document.getElementById('inv');
           console.log(doc.data())

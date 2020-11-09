@@ -29,11 +29,19 @@
     <h1 class="title" id='title'>
       When.net
     </h1>
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">When.net</a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#leaderboard">Leaderboard</a>
+        <div role="separator" class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#shop">Shop</a>
+        <a class="dropdown-item" href="#inv">Inventory</a>
+      </div>
     <p id="tips">
       Put tips here.
     </p>
     <div id="notif" class="notif"></div>
   </div>
+  <div data-spy="scroll" data-target="#navbar-example2" data-offset="0">
   <div class="inner">
     <div class="tap">
       <p><strong id="username">Loading...</strong>, you have...</p>
@@ -77,6 +85,7 @@
   <div id="inv" class="container">
 
   </div>
+</div>
   <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
 

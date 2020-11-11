@@ -9,7 +9,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
     crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="data/master.css">
+  <link rel="stylesheet" href="data/login.css">
   <!--<title>When.net (Testing)</title>-->
 
   <link rel="icon" href="data/img/WhenNet.png">
@@ -18,9 +18,8 @@
 
 <body class="rainbow">
   <div class="inner">
-    <h1 class="display-1">Login</h1>
-    <br>
-    <button class="btn btn-primary" role="button" onclick="login()">Login</button>
+    <h1 class="display-1" onclick="login()"><a href="#"/>Sign in</h1>
+    <p>Press sign in to get started</p>
   </div>
 
   <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -99,7 +98,7 @@
             window.localStorage.setItem('tier', data['tier'])
 				}).then(function() {
 					window.open('home.html', '_self') //redirect to main page
-				})    ;          
+				})    ;
             });
           }
         });

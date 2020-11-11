@@ -25,8 +25,29 @@
 }
 
 /** An element that fades in */
-.-fadein {
+.-fadein1 {
   animation-duration: 1s;
+  transition-timing-function: ease-in;
+  animation-fill-mode: both;
+  animation-name: fadeIn;
+}
+
+.-fadein15 {
+  animation-duration: 1.5s;
+  transition-timing-function: ease-in;
+  animation-fill-mode: both;
+  animation-name: fadeIn;
+}
+
+.-fadein2 {
+  animation-duration: 2s;
+  transition-timing-function: ease-in;
+  animation-fill-mode: both;
+  animation-name: fadeIn;
+}
+
+.-fadein25 {
+  animation-duration: 2.5s;
   transition-timing-function: ease-in;
   animation-fill-mode: both;
   animation-name: fadeIn;

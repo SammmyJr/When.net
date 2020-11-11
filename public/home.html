@@ -9,7 +9,8 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
     crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="data/master.css">
+    <link rel="stylesheet" href="data/master.css">
+  <link rel="stylesheet" href="data/animations.css">
 
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script type="text/javascript" src="https://mottie.github.io/tablesorter/dist/js/jquery.tablesorter.min.js"></script>
@@ -32,7 +33,7 @@
 
           </div>
           <div class="col">
-            <a class='title' data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">When.net</a>
+            <a class='title -fadein' data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">When.net</a>
               <div class="dropdown-menu">
                 <a class="dropdown-item" href="#leaderboard">Leaderboard</a>
                 <div role="separator" class="dropdown-divider"></div>
@@ -55,7 +56,7 @@
           </div>
           <div class="col">
             <div id="notif" class="notif">
-              
+
             </div>
           </div>
       </div>
@@ -66,13 +67,13 @@
   <div class="inner">
     <div class="tap">
       <p><strong id="username">Loading...</strong>, you have...</p>
-      <h2 class="display-1" id="taps">Loading...</h2>
+      <h2 class="display-1 -fadeinLeft1" id="taps">Loading...</h2>
       <p>with a <abbr title="Number of taps per press of space">tap rate</abbr> of...</p>
-      <h2 class="display-1" id="rate">Loading...</h2>
+      <h2 class="display-1 -fadeinLeft15" id="rate">Loading...</h2>
       <p>you can upgrade you <abbr title="The number to the left of the x">constant</abbr> at...</p>
-      <h2 class="display-1" id="constup">Loading...</h2>
+      <h2 class="display-1 -fadeinLeft2" id="constup">Loading...</h2>
       <p>you can upgrade you <abbr title="The number to the right of the x">mulitplier</abbr> at...</p>
-      <h2 class="display-1" id="multiup">Loading...</h2>
+      <h2 class="display-1 -fadeinLeft25" id="multiup">Loading...</h2>
       <br>
       <br>
       <p>Press and hold <kbd>Space</kbd> to get taps</p>

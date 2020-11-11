@@ -1,5 +1,5 @@
 body {
-  padding: 10px;
+  padding: 5px;
 }
 
 .sticky-top p {
@@ -7,12 +7,20 @@ body {
     color: azure;
 }
 
+.sticky-top div {
+  text-align: center;
+}
+
 .title {
   color: azure;
   text-align: center;
   align-items: center;
-  font-size: 32px;
+  font-size: 36px;
   margin-bottom: -10px;
+}
+
+a:hover {
+  text-decoration: overline;
 }
 
 .inner button {
@@ -38,14 +46,9 @@ tbody {
 
 div.tap {
   text-align: center;
-  margin-top: 20%;
+  margin-top: 5%;
 }
 
-.notif {
-    margin-top: 5px;
-    float: right;
-    width: auto;
-}
 
 .rainbow {
     background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);

@@ -385,7 +385,7 @@
       userRef.get().then(function (doc) {
         if (doc.exists) { //if the user has account load values into localstorage
           var data = doc.data();
-          newtaps = doc.data()['taps'] += amount;
+          newtaps = doc.data()['taps'] -= amount;
           return userRef.update({
               taps: newtaps
           }).then(function() {

@@ -248,7 +248,7 @@
         let desc = document.createElement('p');
         let buy = document.createElement('a');
 
-        card.setAttribute('class', 'card -fadeinLeft5');
+        card.setAttribute('class', 'card -fadeinLeft5 ' + doc.data()['class']);
         card.setAttribute('style', 'width: 18rem;');
 
         img.setAttribute('class', 'card-img-top');
@@ -389,7 +389,7 @@
             let type = document.createElement('h6');
             let desc = document.createElement('p');
 
-            card.setAttribute('class', 'card');
+            card.setAttribute('class', 'card ' + item['class']);
             card.setAttribute('style', 'width: 18rem;');
 
             img.setAttribute('class', 'card-img-top');

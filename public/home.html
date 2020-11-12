@@ -372,11 +372,11 @@
           var data = doc.data();
           newinv = doc.data()['inv'];
           newinv.push(item)
-          return userRef.update({
+          UpdateInv().then(function() {
+            return userRef.update({
               inv: newinv
-          }).then(function (){
-            UpdateInv();
           })
+          })          
         };
       })
     }

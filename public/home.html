@@ -321,6 +321,7 @@
     };
 
     function Buy(item, taps) {
+      console.log(taps);
       if (taps >= item['value'])
       {
         PopupSuccess('Spent ' + item['value'] + ' taps', 'warning');

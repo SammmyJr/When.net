@@ -388,6 +388,8 @@
           newtaps = doc.data()['taps'] += amount;
           return userRef.update({
               taps: newtaps
+          }).then(function() {
+            Update();
           })
         };
       })

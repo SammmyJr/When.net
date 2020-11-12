@@ -323,7 +323,7 @@
     function Buy(item, taps) {
       console.log(taps);
       console.log(item);
-      if (taps >= int(item['value']))
+      if (taps >= parseInt(item['value']))
       {
         PopupSuccess('Spent ' + item['value'] + ' taps', 'warning');
         UpdateUserInv(item);

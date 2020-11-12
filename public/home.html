@@ -372,7 +372,7 @@
           var data = doc.data();
           newinv = doc.data()['inv'];
           newinv.push(item)
-          UpdateInv();
+          UpdateInv();          
             return userRef.update({
               inv: newinv          
           })          
@@ -385,11 +385,10 @@
         if (doc.exists) { //if the user has account load values into localstorage
           var data = doc.data();
           newtaps = doc.data()['taps'] -= amount;
+          Update();
           return userRef.update({
               taps: newtaps
-          }).then(function() {
-            Update();
-          })
+          })                    
         };
       })
     }
@@ -432,7 +431,9 @@
             body.appendChild(desc);
             card.appendChild(body);
             inv.appendChild(card);
+
           };
+          Update();
         });
     }
   </script>

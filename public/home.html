@@ -261,7 +261,7 @@
         type.setAttribute('class', 'card-subtitle');
         desc.setAttribute('class' , 'card-text');
         buy.setAttribute('class', 'btn btn-primary');
-        buy.onclick = function() {Buy(doc.data())};
+        buy.onclick = function() {Buy(doc.data(), window.localStorage.getItem('taps'))};
 
         name.innerHTML = doc.data()['name'];
         type.innerHTML = doc.data()['type'];
@@ -290,6 +290,7 @@
 
     function Update() {
       document.getElementById('taps').innerHTML = taps;
+      window.localStorage.setItem('taps', taps);
       document.getElementById('rate').innerHTML = constant + " x " + multiplier;
       document.getElementById('constup').innerHTML = constcost;
       document.getElementById('multiup').innerHTML = multicost;
@@ -319,10 +320,16 @@
       Update();
     };
 
-    function Buy(item) {
-      PopupSuccess('Spent ' + item['value'] + ' taps', 'warning');
-      UpdateUserInv(item);
-      PopupSuccess('Bought ' + item['name'], 'primary');
+    function Buy(item, taps) {
+      if (taps >= item['value'])
+      {
+        PopupSuccess('Spent ' + item['value'] + ' taps', 'warning');
+        UpdateUserInv(item);
+        UpdateUserTaps(item['value'])
+        PopupSuccess('Bought ' + item['name'], 'primary');
+      } else {
+        PopupSuccess('Not enough taps!', 'warning');
+      }
     };
 
     function Save() {
@@ -369,6 +376,18 @@
               inv: newinv
           }).then(function (){
             UpdateInv();
+          })
+        };
+      })
+    }
+
+    async function UpdateUserTaps(amount) {
+      userRef.get().then(function (doc) {
+        if (doc.exists) { //if the user has account load values into localstorage
+          var data = doc.data();
+          newtaps = doc.data()['taps'] += amount;
+          return userRef.update({
+              taps: newtaps
           })
         };
       })

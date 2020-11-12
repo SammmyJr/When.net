@@ -53,6 +53,13 @@
   animation-name: fadeIn;
 }
 
+.-fadeinLeft5 {
+  animation-duration: 0.5s;
+  transition-timing-function: ease-in;
+  animation-fill-mode: both;
+  animation-name: fadeInLeft;
+}
+
 .-fadeinLeft1 {
   animation-duration: 1s;
   transition-timing-function: ease-in;

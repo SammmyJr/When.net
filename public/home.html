@@ -189,7 +189,7 @@
         });
       }).then(function () {
         $(function () {
-          $("#tablesorter").tablesorter({ sortList: [[0, 0], [1, 0]] });
+          $("#tablesorter").tablesorter({ sortList: [[0, 0], [0, 1]] });
         });
         UpdateInv();
         Update();
@@ -369,10 +369,10 @@
           var data = doc.data();
           newinv = doc.data()['inv'];
           newinv.push(item)
-          UpdateInv();          
+          UpdateInv();
             return userRef.update({
-              inv: newinv          
-          })          
+              inv: newinv
+          })
         };
       })
     }
@@ -385,7 +385,7 @@
           Update();
           return userRef.update({
               taps: newtaps
-          })                    
+          })
         };
       })
     }

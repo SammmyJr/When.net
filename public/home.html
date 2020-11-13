@@ -369,11 +369,10 @@
           var data = doc.data();
           newinv = doc.data()['inv'];
           newinv.push(item)
-          return userRef.update({
-              inv: newinv
-          }).then(function (){
-            UpdateInv();
-          })
+          UpdateInv();          
+            return userRef.update({
+              inv: newinv          
+          })          
         };
       })
     }
@@ -382,10 +381,11 @@
       userRef.get().then(function (doc) {
         if (doc.exists) { //if the user has account load values into localstorage
           var data = doc.data();
-          newtaps = doc.data()['taps'] += amount;
+          newtaps = doc.data()['taps'] -= amount;
+          Update();
           return userRef.update({
               taps: newtaps
-          })
+          })                    
         };
       })
     }
@@ -428,7 +428,9 @@
             body.appendChild(desc);
             card.appendChild(body);
             inv.appendChild(card);
+
           };
+          Update();
         });
     }
   </script>

@@ -47,3 +47,7 @@
     50%{background-position:100% 92%}
     100%{background-position:0% 9%}
 }
+
+.lime {
+  background-color: lime;
+}
